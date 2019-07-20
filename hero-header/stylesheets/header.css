@@ -22,9 +22,9 @@ header {
           perspective: 100px;
 }
 header:before {
-    -webkit-animation: fade-slide-down 2s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
-    animation: fade-slide-down 2s .5s cubic-bezier(.17,.67,.83,.67) forwards;
-
+    animation: no-transform 1s .5s cubic-bezier(.17,.67,.83,.67) forwards;
+    transform: translateY(-4rem);
+    opacity: 0;
     content: "";
     background: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.8)),
     url(../images/background.jpg) no-repeat bottom;
@@ -41,6 +41,7 @@ header:before {
 
 }
 header:after {
+    animation: rotate .5s .5s cubic-bezier(0, 0.5, 0, 1) forwards;
   background: #F9FCFF;
   content: "";
   height: 40rem;
@@ -48,8 +49,6 @@ header:after {
   position: absolute;
     right: -5%;
     top: 90%;
-  -webkit-transform: rotateZ(-4deg);
-          transform: rotateZ(-4deg);
   -webkit-transform-origin: 0 0;
           transform-origin: 0 0;
 }
@@ -70,24 +69,80 @@ header:after {
   z-index: 10;
 }
 
+.animate-pop-in {
+    animation: no-transform .6s cubic-bezier(0,.9,.3,1.2) forwards;
+    opacity: 0;
+    transform: translateY(-4rem);
+}
 
-@keyframes fade-slide-down {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-4rem);
-        transform: translateY(-4rem);
+
+@keyframes rotate {
+    100% {
+        transform: rotateZ(-4deg);
     }
-    50% {
-         opacity: 0.8;
-         transform: translateY(-2rem);
-     }
-    80% {
-        opacity: 0.6;
-        transform: translateY(-1rem);
-    }
+}
+
+@keyframes no-transform {
     100% {
         opacity: 1;
-        -webkit-transform: none;
         transform: none;
     }
+}
+
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: none;
+    }
+
+    50% {
+        opacity: .8;
+        transform: scale(.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+
+}
+
+.rocky-dashed {
+    animation-delay: .6s;
+}
+
+.header-title {
+    animation-delay: .8s;
+}
+
+.header-subtitle {
+    animation-delay: 1s;
+}
+
+.header-button {
+    animation-delay: 1.2s;
+}
+
+.header-down-array {
+    position: absolute;
+        bottom: 4vh;
+        right: 0;
+        left: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.header-down-array img {
+    opacity: 0;
+    animation: no-transform 1s 1s ease-out forwards,
+               pulse 2s 1s ease-out infinite;
+    transform: translateY(4rem);
+
+}
+
+js-loading *,
+js-loading *:before,
+js-loading *:after {
+    animation-play-state: paused !important;
 }

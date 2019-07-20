@@ -7,3 +7,6 @@ The explored css features:
  - psudo elements animation
  - timing function
  - gradiant colors
+ - keyframs refactoring
+ - wait for the content to load before start the animation
+ - ... and more  
