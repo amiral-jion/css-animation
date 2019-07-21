@@ -1,0 +1,45 @@
+/* Styles for the links */
+
+a {
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover {
+    color: #457DFB;
+    right: 0;
+    text-decoration: none;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    right: 100%;
+    left: 0;
+    bottom: .14em;
+    border-top: .1em solid #2F56B0;
+}
+
+a:hover::after {
+    animation: anchor-underline 2s cubic-bezier(0,.5,0,1) infinite;
+    border-color: #457DFB;
+}
+
+@keyframes anchor-underline{
+    0%, 10% {
+        left: 0;
+        right: 100%;
+    }
+
+    40%, 60% {
+        left: 0;
+        right: 0;
+    }
+
+    90%, 100% {
+        left: 100%;
+        right: 0;
+    }
+
+
+}
