@@ -25,6 +25,10 @@ a:hover::after {
     border-color: #457DFB;
 }
 
+.anchor-tooltip {
+
+}
+
 @keyframes anchor-underline{
     0%, 10% {
         left: 0;
@@ -40,6 +44,4 @@ a:hover::after {
         left: 100%;
         right: 0;
     }
-
-
 }
